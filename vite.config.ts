@@ -4,13 +4,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const BASE_API_URL = process.env.BASE_API_URL;
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
       "/api": {
-        target: process.env.VITE_BASE_API_URL,
+        target: BASE_API_URL,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
