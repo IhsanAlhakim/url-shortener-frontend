@@ -1,5 +1,5 @@
 export async function shortenUrl(url: string) {
-  const response = await fetch("/api/short", {
+  const response = await fetch("/short", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
