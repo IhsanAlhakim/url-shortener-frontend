@@ -8,19 +8,36 @@ function App() {
     undefined
   );
   const [copyText, setCopyText] = useState<string>("Copy");
+  const [serverError, setServerError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (url) {
-      const shortenedUrlData = await shortenUrl(url);
-      setCopyText("Copy");
-      setShortenedUrl(shortenedUrlData.shortUrl);
+      try {
+        const shortenedUrlData = await shortenUrl(url);
+        setCopyText("Copy");
+        setShortenedUrl(shortenedUrlData.shortUrl);
+      } catch (error) {
+        console.error(error);
+        setServerError(true);
+      }
     }
   };
 
   return (
     <>
       <div className="min-h-screen bg-gray-900 relative">
+        {serverError && (
+          <div
+            onClick={() => {
+              setServerError(false);
+            }}
+            className="fixed text-center w-full p-2 text-white bg-red-600 cursor-pointer hover:bg-red-400"
+          >
+            Server Error / Offline, Please Try Again Later
+          </div>
+        )}
+
         <main className="min-h-screen flex justify-center items-center ">
           <section className="w-[80%] min-h-[500px] bg-snaplink bg-cover bg-center rounded-3xl flex flex-col gap-4 justify-center items-center relative">
             <div className="text-center text-white w-[700px] flex flex-col gap-2">
