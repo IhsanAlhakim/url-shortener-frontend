@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://snaplink-gdbua6ou.b4a.run/$1"
+    }
+  ]
+}
