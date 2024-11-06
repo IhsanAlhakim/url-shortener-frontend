@@ -38,9 +38,9 @@ function App() {
           </div>
         )}
 
-        <main className="min-h-screen flex justify-center items-center ">
-          <section className="w-[80%] min-h-[500px] bg-snaplink bg-cover bg-center rounded-3xl flex flex-col gap-4 justify-center items-center relative">
-            <div className="text-center text-white w-[700px] flex flex-col gap-2">
+        <main className="min-h-screen lg:flex justify-center items-center ">
+          <section className="lg:w-[80%] min-h-screen lg:min-h-[500px] bg-snaplink bg-cover bg-center rounded-3xl flex flex-col gap-4 justify-center items-center relative">
+            <div className="text-center text-white lg:w-[700px] flex flex-col gap-2 p-3 lg:p-0">
               <h1 className="text-5xl font-semibold">SNAPLINK</h1>
               <h2 className="text-3xl font-semibold">Easily Shareable Links</h2>
               <p className="text-base font-light">
@@ -49,9 +49,9 @@ function App() {
                 any platform
               </p>
             </div>
-            <div>
+            <div className="px-3">
               <form onSubmit={handleSubmit}>
-                <div className="bg-white w-[800px] flex rounded-lg overflow-hidden">
+                <div className="bg-white md:w-[600px] lg:w-[800px] flex rounded-lg overflow-hidden">
                   <input
                     type="text"
                     name="url"
@@ -71,28 +71,30 @@ function App() {
                 </div>
               </form>
             </div>
-            <div className="bg-white w-[400px] flex rounded-lg overflow-hidden">
-              <input
-                type="text"
-                value={shortenedUrl}
-                readOnly
-                placeholder="Your Shortened URL Here"
-                className="bg-transparent outline-none w-full text-lg p-3"
-              />
-              <button
-                type="button"
-                onClick={() => {
-                  if (shortenedUrl) {
-                    navigator.clipboard.writeText(shortenedUrl);
-                    setCopyText("Copied");
-                  }
-                }}
-                className="bg-gray-900 w-[150px] text-white font-semibold"
-              >
-                {copyText}
-              </button>
+            <div className="px-3">
+              <div className="bg-white md:w-[400px] flex rounded-lg overflow-hidden">
+                <input
+                  type="text"
+                  value={shortenedUrl}
+                  readOnly
+                  placeholder="Your Shortened URL Here"
+                  className="bg-transparent outline-none w-full text-lg p-3"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (shortenedUrl) {
+                      navigator.clipboard.writeText(shortenedUrl);
+                      setCopyText("Copied");
+                    }
+                  }}
+                  className="bg-gray-900 w-[150px] text-white font-semibold"
+                >
+                  {copyText}
+                </button>
+              </div>
             </div>
-            <div className="absolute left-3 bottom-1 text-white font-semibold">
+            <div className="absolute left-4 bottom-2 text-white font-semibold">
               <a href="https://www.freepik.com/free-photo/black-laptop-screen-dark-room-night_269980950.htm#fromView=search&page=2&position=24&uuid=14867695-9166-45ab-a48e-61c5d3ae9c60">
                 Image by pvproductions on Freepik
               </a>
