@@ -39,7 +39,7 @@ function App() {
         )}
 
         <main className="min-h-screen lg:flex justify-center items-center ">
-          <section className="lg:w-[80%] min-h-screen lg:min-h-[500px] bg-snaplink bg-cover bg-center rounded-3xl flex flex-col gap-4 justify-center items-center relative">
+          <section className="lg:w-[80%] min-h-dvh lg:min-h-[500px] bg-snaplink bg-cover bg-center rounded-3xl flex flex-col gap-4 justify-center items-center relative">
             <div className="text-center text-white lg:w-[700px] flex flex-col gap-2 p-3 lg:p-0">
               <h1 className="text-5xl font-semibold">SNAPLINK</h1>
               <h2 className="text-3xl font-semibold">Easily Shareable Links</h2>
