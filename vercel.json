@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://capitalist-silva-sane-4d025f74.koyeb.app/$1"
+      "destination": "https://snaplink1-xw42qgtt.b4a.run/$1"
     }
   ]
 }
