@@ -22,10 +22,9 @@ function App() {
       } catch (error) {
         console.error(error);
         setServerError(true);
-      } finally {
-        setLoading(false);
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -61,6 +60,7 @@ function App() {
                     name="url"
                     id="url"
                     value={url}
+                    disabled={loading}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setUrl(e.target.value)
                     }
