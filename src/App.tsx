@@ -9,9 +9,11 @@ function App() {
   );
   const [copyText, setCopyText] = useState<string>("Copy");
   const [serverError, setServerError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     if (url) {
       try {
         const shortenedUrlData = await shortenUrl(url);
@@ -20,6 +22,8 @@ function App() {
       } catch (error) {
         console.error(error);
         setServerError(true);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -63,10 +67,15 @@ function App() {
                     className="bg-transparent outline-none w-full text-lg p-3"
                   />
                   <button
+                    disabled={loading}
                     type="submit"
-                    className="bg-gray-900 w-[150px] text-white font-semibold"
+                    className={
+                      loading
+                        ? "bg-gray-500 w-[150px] text-white font-semibold"
+                        : "bg-gray-900 w-[150px] text-white font-semibold"
+                    }
                   >
-                    Shorten
+                    {loading ? "Loading..." : "Shorten"}
                   </button>
                 </div>
               </form>
