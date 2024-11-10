@@ -6,8 +6,5 @@ export async function shortenUrl(url: string) {
     },
     body: JSON.stringify({ oriUrl: url }),
   });
-  console.log(response.ok);
-  console.log(response.status);
-  console.log(response.json());
   return response.json();
 }

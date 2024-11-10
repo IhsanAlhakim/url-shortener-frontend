@@ -17,11 +17,9 @@ function App() {
     if (url) {
       try {
         const shortenedUrlData = await shortenUrl(url);
-        console.log("Berhasil");
         setCopyText("Copy");
         setShortenedUrl(shortenedUrlData.shortUrl);
       } catch (error) {
-        console.log("Gagal");
         console.error(error);
         setServerError(true);
       } finally {
