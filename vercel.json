@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://snaplink1-xw42qgtt.b4a.run/$1"
+      "destination": "https://snaplink2-sr8e3bfn.b4a.run/$1"
     }
   ]
 }
